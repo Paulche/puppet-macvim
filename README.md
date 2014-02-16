@@ -13,6 +13,7 @@ include macvim
 * boxen
 * homebrew
 * stdlib
+* python
 
 Also requires a full Xcode install.
 

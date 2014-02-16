@@ -5,17 +5,14 @@
 #
 #   include macvim
 class macvim {
-  case $::osfamily {
-    'Darwin': {
-      package { 'macvim':
-        ensure          => installed,
-        install_options => [
-          '--with-cscope',
-          '--override-system-vim',
-          ];
-      }
-    }
-
-    default: {}
+  package { 'macvim':
+    ensure          => present,
+    install_options => [
+      '--with-cscope',
+      '--override-system-vim',
+    ],
+    require         => Package['python'],
   }
+
+  ensure_packages(['python'])
 }
